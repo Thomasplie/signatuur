@@ -38,20 +38,15 @@ body {
     border-radius: 100px;
 }
 
-.nav-links {
+.nav-title {
     display: flex;
     gap: 1.5rem;
     font-weight: 700;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .exit {
     padding: 5px;
-    background: rgba(255, 255, 255, 15%);
+    background: rgba(255, 0, 255, 50%);
     border: none;
     font-weight: 700;
     cursor: pointer;
@@ -69,8 +64,48 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     color: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, 15%);
+    padding: 40px 0;
+}
+
+.table {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #5a3a1a, #6b4423, #4a2f16);
+    box-shadow: inset 0 20px 40px rgba(255, 255, 255, 0.05),
+    inset 0 -30px 60px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.table::after {
+    content: "";
+    position: absolute;
+
+    width: 360px;
+    height: 10px;
+
+    background: linear-gradient(
+            to right,
+            #2b2b2b 0%, /* punt */ #2b2b2b 6%,
+            #f5c542 6%, /* potlood */ #f5c542 88%,
+            #cbd5e1 88%, /* metalen ring */ #cbd5e1 92%,
+            #e85d5d 92%, /* gum */ #e85d5d 100%
+    );
+
+    border-radius: 5px;
+
+    /* 🔑 Positionering */
+    top: 40px; /* hoog, maar niet tegen rand */
+    left: 50%;
+    transform: translateX(-50%); /* horizontaal */
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.45);
+
+    z-index: 1;
 }
 
 .flipbook {
@@ -105,13 +140,33 @@ main {
     align-items: center;
     gap: 10px;
     border: 1px solid rgba(0, 0, 0, 0.11);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
 }
 
-.page img {
-    width: 70%;
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    padding-top: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.page-layout h2 {
+    border-bottom: 2px solid black;
+}
+
+.page-layout p {
+    text-align: left;
+}
+
+.page-layout img {
+    width: 50%;
     object-fit: cover;
     margin: auto;
+    border-radius: 10px;
 }
 
 .flipbook .page small {
@@ -164,7 +219,14 @@ main {
     rotate: 270deg;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 .content-article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     flex: 1;
     max-width: 500px;
 }
@@ -176,6 +238,12 @@ main {
     border: 1px solid transparent;
     transition: color 300ms ease, background-color 300ms ease, border-color 300ms ease;
     margin: 30px 0;
+}
+
+.panel a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
 
 .panel:hover {
